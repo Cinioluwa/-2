@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Sandra!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Happy Birthday, Sandra!</h1>
+      <p class="subtitle" id="uh">Wishing you endless smiles and joyy</p>
+    </header>
+    <section class="hero">
+      <div class="hero-slideshow">
+        <img src="1.jpg" alt="Birthday Celebration" class="active">
+        <img src="2.jpg" alt="Party Vibes">
+        <img src="3.jpg" alt="Cake Time">
+        <img src="4.jpg" alt="Party Vibes">
+        <img src="5.jpg" alt="Cake Time">
+        <img src="6.jpg" alt="Party Vibes">
+        <img src="7.jpg" alt="Cake Time">
+        <img src="8.jpg" alt="Party Vibes">
+      </div>
+      <div class="greeting">
+        <h2>Cheers to You, Sandra!</h2>
+        <p>May your day be filled with laughter, love, and of course, lots of cake. Here’s to celebrating the wonderful person you are!</p>
+      </div>
+    </section>
+    
+    <section class="qualities">
+      <div class="quality-card">
+        <div class="quality-icon">🎉</div>
+        <h3>Joyful</h3>
+        <p>Your smile lights up every room!</p>
+      </div>
+      <div class="quality-card">
+        <div class="quality-icon">🌟</div>
+        <h3>Shining</h3>
+        <p>You radiate positivity and charm.</p>
+      </div>
+      <div class="quality-card">
+        <div class="quality-icon">❤️</div>
+        <h3>Loving</h3>
+        <p>Your heart is as warm as your laughter.</p>
+      </div>
+    </section>
+    
+    <section class="photo-gallery">
+      <h2>The Celebranttt!!</h2>
+      <div class="photo-grid">
+        <div class="photo-item">
+          <div class="photo-front">
+            <img src="10.jpg" alt="Memory 1">
+          </div>
+          <div class="photo-back">
+            <p>Remember when we danced like nobody was watching?</p>
+          </div>
+        </div>
+        <div class="photo-item">
+          <div class="photo-front">
+            <img src="11.jpg" alt="Memory 2">
+          </div>
+          <div class="photo-back">
+            <p>That spontaneous road trip was epic!</p>
+          </div>
+        </div>
+        <div class="photo-item">
+          <div class="photo-front">
+            <img src="12.jpg" alt="Memory 3">
+          </div>
+          <div class="photo-back">
+            <p>Cheers to the late-night conversations!</p>
+          </div>
+        </div>
+        <div class="photo-item">
+            <div class="photo-front">
+              <img src="13.jpg" alt="Memory 2">
+            </div>
+            <div class="photo-back">
+              <p>That spontaneous road trip was epic!</p>
+            </div>
+      </div>
+      <div class="photo-item">
+        <div class="photo-front">
+          <img src="14.jpg" alt="Memory 3">
+        </div>
+        <div class="photo-back">
+          <p>Cheers to the late-night conversations!</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="memories">
+      <h2>Gratitude</h2>
+      <div class="memory-carousel">
+        <button class="carousel-button" onclick="prevMemory()">&#8592;</button>
+        <div class="memory-container">
+          <div class="memory active">
+            <p>You've always seen the good in the bad❤️‍🔥.</p>
+          </div>
+          <div class="memory">
+            <p>Our calls together, although rare🥲<i>(my fault)</i> are my favorite times.</p>
+          </div>
+          <div class="memory">
+            <p>Thank you so much for all you do😌!.</p>
+          </div>
+        </div>
+        <button class="carousel-button" onclick="nextMemory()">&#8594;</button>
+      </div>
+    </section>
+    
+    <section class="photo-collage">
+      <div class="collage-item">
+        <img src="1.jpg" alt="Collage Image 1">
+      </div>
+      <div class="collage-item">
+        <img src="2.jpg" alt="Collage Image 2">
+      </div>
+      <div class="collage-item">
+        <img src="3.jpg" alt="Collage Image 3">
+      </div>
+      <div class="collage-item">
+        <img src="4.jpg" alt="Collage Image 4">
+      </div>
+      <div class="collage-item">
+        <img src="5.jpg" alt="Collage Image 5">
+      </div>
+      <div class="collage-item">
+        <img src="6.jpg" alt="Collage Image 6">
+      </div>
+      <div class="collage-item">
+        <img src="7.jpg" alt="Collage Image 7">
+      </div>
+      <div class="collage-item">
+        <img src="8.jpg" alt="Collage Image 8">
+      </div>
+    </section>
+    
+    <section class="wishes">
+      <h2>Send Your Wishes</h2>
+      <form class="wish-form" onsubmit="submitWish(event)">
+        <textarea placeholder="Write your birthday wish here..." required style="resize:none"></textarea>
+        <button type="submit">Send Wish</button>
+      </form>
+    </section>
+    
+   
+    
+    <footer>
+      <p>&copy; 2025 Happy Birthday, Sandra! With 💗 from CIA</p>
+    </footer>
+  </div>
+  
+  <!-- JavaScript for interactive elements -->
+  <script>
+    // Memory Carousel Functionality
+    const memories = document.querySelectorAll('.memory');
+    let currentMemory = 0;
+    
+    function showMemory(index) {
+      memories.forEach((memory, i) => {
+        memory.classList.toggle('active', i === index);
+      });
+    }
+    
+    function nextMemory() {
+      currentMemory = (currentMemory + 1) % memories.length;
+      showMemory(currentMemory);
+    }
+    
+    function prevMemory() {
+      currentMemory = (currentMemory - 1 + memories.length) % memories.length;
+      showMemory(currentMemory);
+    }
+    
+    // Wish submission
+    function submitWish(event) {
+    event.preventDefault();
+    const textarea = event.target.querySelector('textarea');
+    const wishText = textarea.value.trim();
+    if (wishText) {
+      // Replace the following with Sandra's WhatsApp number including country code.
+      // For example, if her number is +15551234567, use "15551234567".
+      const whatsappNumber = "2347070753545"; 
+      // Encode the message to be URL-safe.
+      const encodedMessage = encodeURIComponent(wishText);
+      // Construct the WhatsApp URL.
+      const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+      // Open the WhatsApp chat with the prefilled message.
+      window.open(url, "_blank");
+      textarea.value = '';
+    }
+  }
+    
+    // Note: For a real countdown, you’d calculate and update the timer values.
+  </script>
+</body>
+</html>
